@@ -124,20 +124,6 @@
       return !!~iters.indexOf(ar, needle)
     }
 
-  , difference: function (ar) {
-      return iters.filter(ar, function (v) {
-        return !iters.inArray(this, v)
-      }, iters.flatten(slice.call(arguments, 1)))
-    }
-
-  , intersect: function (ar) {
-      return iters.filter(ar, function (v) {
-        return iters.every(this, function (a) {
-          return iters.inArray(a, v)
-        })
-      }, slice.call(arguments, 1))
-    }
-
   , memo: function (fn, hasher) {
       var store = {}
       hasher || (hasher = function (v) {
@@ -149,6 +135,17 @@
       }
     }
   }
+
+  iters.each(['difference', 'intersect'], function (method, yes) {
+    iters[method] = function (ar) {
+      var rest = slice.call(arguments, 1)
+      return iters.filter(ar, function (n) {
+        return iters.every(rest, function (a) {
+          return iters.inArray(a, n) == yes
+        })
+      })
+    }
+  })
 
   var is = {
     fun: function (f) {
