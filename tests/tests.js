@@ -172,6 +172,10 @@ sink('Arrays', function(test, ok, before, after) {
     ok(v.difference([0, 1, 2, 5], [1, 4], [4, 2]).join() === '0,5', 'difference result')
   })
 
+  test('intersect', 1, function () {
+    ok(v.intersect([0, 1, 2, 4], [1, 4, 0], [4, 2, 0]).join() === '0,4', 'intersect result')
+  })
+
 })
 
 sink('Utility', function (test, ok, b, a, assert) {
