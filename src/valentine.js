@@ -124,6 +124,12 @@
       return !!~iters.indexOf(ar, needle)
     }
 
+  , difference: function (ar) {
+      return iters.filter(ar, function (v) {
+        return !iters.inArray(this, v)
+      }, iters.flatten(slice.call(arguments, 1)))
+    }
+
   , memo: function (fn, hasher) {
       var store = {}
       hasher || (hasher = function (v) {

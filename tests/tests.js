@@ -168,6 +168,10 @@ sink('Arrays', function(test, ok, before, after) {
     })
   })
 
+  test('difference', 1, function () {
+    ok(v.difference([0, 1, 2, 5], [1, 4], [4, 2]).join() === '0,5', 'difference result')
+  })
+
 })
 
 sink('Utility', function (test, ok, b, a, assert) {
