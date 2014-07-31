@@ -64,7 +64,7 @@ function callback(key, value, object) {
 }
 ```
 
-**`calback` is defined as:
+**`callback` is defined as:
 
 ``` js
 function callback(memo, item, index, array) {
@@ -83,6 +83,8 @@ function callback(memo, item, index, array) {
   * v.compact(array) => array
   * v.flatten(array) => array
   * v.uniq(array) => array
+  * v.difference(array, ...arrays) => array
+  * v.intersect(array, ...arrays) => array
   * v.first(array) => *value
   * v.last(array) => *value
   * v.keys(object) => array
